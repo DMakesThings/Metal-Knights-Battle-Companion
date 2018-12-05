@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <div class="container">
+        <title>Metal Knights: Battle Simulato</title>
+        <h1>Metal Knights</h1>
+        <h2>Battle Simulator</h2>
+        <script type="text/javascript" src="src/engine/core.js"></script>
+        <script type="text/javascript" src="src/game/config.js"></script>
+        <script type="text/javascript" src="src/game/main.js"></script>
+    </div>
+</head>
+<body>
+    <div class="container">
+        <form id="AttackForm"> 
+            <input class="form-control" placeholder="Select Attack Unit" list="AttackUnits" id="AttackUnit" value="Scorpion"> 
+
+            <datalist id="AttackUnits">
+                <option value="Soldier">Infantry</option> 
+                <option value="Alpha Warrior">Infantry</option> 
+                <option value="Bulldozer">Utility</option> 
+                <option value="Truck">Utility</option> 
+                <option value="Transport">Ground Transport</option> 
+                <option value="Panther">Infantry</option> 
+                <option value="M-31">Light Tank</option>
+                <option value="Elf">Armoured Car</option>
+                <option value="Commando">Infantry</option> 
+                <option value="Striker">Cannon</option>
+                <option value="Tiger">Ranged Tank</option>
+                <option value="Grizzli">Tank</option>  
+                <option value="Patriot">Missile</option>
+                <option value="Artillery">Ranged Tank</option>  
+                <option value="AirFreedom">Anti-Air Tank</option>
+                <option value="Scorpion">Tank</option>
+                <option value="Scud">Missile</option> 
+                <option value="Metal Knight">Tank</option> 
+                <!-- Now Navy-->
+                <option disabled="disabled">----</option>  
+                <option value="Scout">Warship</option>   
+                <option value="Cargo">Water Transport</option>
+                <option value="Destroyer">Warship</option>
+                <option value="Shark">Submarine</option>
+                <option value="Shooter">Ranged Warship</option>
+                <option value="Captain">Battleship</option>
+                <!-- Now Airforce-->
+                <option disabled="disabled">----</option>
+                <option value="HawkEye">Anti-Air Cannon</option>
+                <option value="Predator">Fighter</option>
+                <option value="Hercules">Air Transport</option>
+                <option value="Apache">Helicopter</option> 
+                <option value="Eagle">Fighter</option>
+                <option value="Falcon">Fighter</option>  
+                <option value="Furtif">Fighter</option>              
+                        
+            </datalist>
+            <input class="btn btn-primary" id="Create Attacking Unit" type="button" value="Create Attacking Unit" 
+                    onclick= "game.system.scene.createAttackingUnit(document.getElementById('AttackUnit').value);" /> </br>
+
+            <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="attackingInCity">
+                    <label class="custom-control-label" for="attackingInCity">Is Attacking Unit in a City/Base/Resource?</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="attackingInFortifiedCity">
+                    <label class="custom-control-label" for="attackingInFortifiedCity">Is it a fortified City? </label>
+            </div>
+            <input class="form-control" placeholder="Surrounding Attack Bonus?" list="NumberList" id="SurroundingUnits">
+        
+                <datalist id="NumberList" >
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8"></option>
+                    <option value="9"></option>
+                    <option value="10"></option>
+                    <option value="11"></option>
+                    <option value="12"></option>
+                    <option value="13"></option>
+                    <option value="14"></option>
+                    <option value="15"></option>
+                    <option value="16"></option>
+                    <option value="17"></option>
+                    <option value="18"></option>
+                    <option value="19"></option>
+                    <option value="20"></option>
+                </datalist>
+        </form>
+    <hr>
+
+        <form id="DefendForm">
+            <input class="form-control" placeholder="Select Defending Unit" list="DefendUnits" id="DefendUnit" value="Metal Knight"> 
+            <datalist id="DefendUnits">
+                    <option value="Soldier">
+                    <option value="Alpha Warrior">
+                    <option value="Bulldozer">
+                    <option value="Truck">
+                    <option value="Transport">
+                    <option value="Porcupine">
+                    <option value="Panther">
+                    <option value="M-31">
+                    <option value="Elf">
+                    <option value="Commando">
+                    <option value="Striker">
+                    <option value="Tiger"> 
+                    <option value="Grizzli">  
+                    <option value="Patriot">
+                    <option value="Artillery">  
+                    <option value="AirFreedom">
+                    <option value="Scorpion">
+                    <option value="Scud"> 
+                    <option value="Metal Knight"> 
+                    <!-- Now Navy-->
+                    <option disabled="disabled">----</option>  
+                    <option value="Scout">Warship</option>   
+                    <option value="Cargo">Water Transport</option>
+                    <option value="Destroyer">Warship</option>
+                    <option value="Shark">Submarine</option>
+                    <option value="Shooter">Ranged Warship</option>
+                    <option value="Captain">Battleship</option>
+                    <!-- Now Airforce-->
+                    <option disabled="disabled">----</option>
+                    <option value="HawkEye">Anti-Air Cannon</option>
+                    <option value="Predator">Fighter</option>
+                    <option value="Hercules">Air Transport</option>
+                    <option value="Apache">Helicopter</option> 
+                    <option value="Eagle">Fighter</option>
+                    <option value="Falcon">Fighter</option>  
+                    <option value="Furtif">Fighter</option> 
+                    <option value="Nuke">Nuclear Missle</option>  
+            </datalist>
+            <input class="btn btn-primary" id="Create Defending Unit" type="button" value="Create Defending Unit" 
+                    onclick="game.system.scene.createDefendingUnit(document.getElementById('DefendUnit').value);" /> </br>
+            
+            <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defendingInCity" checked>
+                    <label class="custom-control-label" for="defendingInCity">Is Defending Unit in a City/Base/Resource?</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defendingInFortifiedCity" checked>
+                    <label class="custom-control-label" for="defendingInFortifiedCity">Is it a fortified City? </label>
+            </div>
+        </form>
+    <hr>
+
+        <input class="btn btn-primary" id="Recreate Units" type="button" value="Recreate Units" 
+                onclick="game.system.scene.createDefendingUnit(document.getElementById('DefendUnit').value); game.system.scene.createAttackingUnit(document.getElementById('AttackUnit').value);" /> 
+
+        <input class="btn btn-primary" id="Simulate Fight" type="button" value="Simulate Fight" 
+            onclick="game.system.scene.fightTest(
+                document.getElementById('SurroundingUnits').value, 
+                (+document.getElementById('attackingInCity').checked),
+                (+document.getElementById('defendingInCity').checked),
+                (+document.getElementById('attackingInFortifiedCity').checked),
+                (+document.getElementById('defendingInFortifiedCity').checked),
+                document.getElementById('AttackersExperience').value,
+                document.getElementById('DefendersExperience').value);" /> 
+            
+    <hr>
+        <div class="input-group">
+            <span class="input-group-addon">Attakers Experience</span>
+            <input class="form-control" placeholder="0" list="ExperienceNumList" id="AttackersExperience">
+            <span class="input-group-addon">Defender's Experience</span>
+            <input class="form-control" placeholder="0" list="ExperienceNumList" id="DefendersExperience">
+
+            <datalist id="ExperienceNumList" >
+                    <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8"></option>
+                </datalist>
+        </div>
+    </div>
+    
+</body>
+</html>
