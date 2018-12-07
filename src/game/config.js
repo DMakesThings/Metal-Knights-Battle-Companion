@@ -4,7 +4,7 @@ game.config = {
     system: {
         width: 320,
         height: 120,
-        scale: true,
+        scale: false,
         center: false,
         resize: false,
         rotateScreen: false
