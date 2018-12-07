@@ -51,7 +51,9 @@ game.createClass('Renderer', {
             this.canvas.style.outline = 'none';
             if (game.Renderer.scaleMode === 'nearest') this.canvas.style.imageRendering = 'pixelated';
             this.canvas.tabIndex = 1;
-            document.body.appendChild(this.canvas);
+			var gameID = document.getElementById('gameCanvas');
+			gameID.appendChild(this.canvas);
+            //document.body.appendChild(this.canvas);
             if (!game.System.center) document.body.style.margin = 0;
         }
 
